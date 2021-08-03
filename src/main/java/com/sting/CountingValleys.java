@@ -1,6 +1,7 @@
 package com.sting;
 
 import java.io.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class CountingValleys {
 
@@ -13,18 +14,30 @@ public class CountingValleys {
      */
 
     public static int countingValleys(int steps, String path) {
-        int level = 0;
-        int valley = 0;
-        for (char c : path.toCharArray()) {
-            if (c == 'D') {
-                if (level == 0)
-                    valley++;
-                level--;
+        AtomicInteger level = new AtomicInteger();
+        AtomicInteger valley = new AtomicInteger();
+
+        return path.chars().reduce(0,(a,b)->{
+            if (b == 68) {
+                if (level.get() == 0)
+                    valley.getAndIncrement();
+                 level.getAndDecrement();
             } else
-                level++;
+                 level.getAndIncrement();
+            return valley.get();
+        });
+
+        //Classic code
+        /*for (char c : path.toCharArray()) {
+            if (c == 'D') {
+                if (level.get() == 0)
+                    valley.getAndIncrement();
+                level.getAndDecrement();
+            } else
+                level.getAndIncrement();
         }
 
-        return valley;
+        return valley.get();*/
 
     }
 

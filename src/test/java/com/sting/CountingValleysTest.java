@@ -12,6 +12,10 @@ public class CountingValleysTest {
     {
         System.out.println("======TEST ONE EXECUTED=======");
         Assertions.assertEquals( 1 ,CountingValleys.countingValleys(8,"DDDDUUUU"));
+        System.out.println("======TEST TWO EXECUTED=======");
+        Assertions.assertEquals( 2 ,CountingValleys.countingValleys(8,"DDUUDDUU"));
+        System.out.println("======TEST THREE EXECUTED=======");
+        Assertions.assertEquals( 0 ,CountingValleys.countingValleys(8,"UUDDUUDD"));
     }
 }
 
