@@ -10,7 +10,7 @@ public class JumpingontheCloudsTest {
 
     @Tag("DEV")
     @Test
-    void count()
+    void jumps()
     {
         System.out.println("======TEST ONE EXECUTED=======");
         Assertions.assertEquals( 4 ,JumpingontheClouds.jumpingOnClouds(List.of(0, 0, 1, 0, 0,1,0)));
